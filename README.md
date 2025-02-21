@@ -1,4 +1,3 @@
-# coding-fd
 # Coding For Dummies
 ## Example Files
 

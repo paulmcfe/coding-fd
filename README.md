@@ -1,5 +1,5 @@
 # Coding For Dummies
-## Example Files
+## Example Code Files
 
 This repository contains the example files used in the book *Coding For Dummies*.
 

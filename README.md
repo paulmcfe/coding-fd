@@ -5,7 +5,7 @@ This repository contains the example files used in the book *Coding For Dummies*
 
 You can access the example files individually by clicking the appropriate chapter, above, or you can get your hands on everything by following these steps:
 
-1. Click the green `< > Code` button.![Alt text](images/my-image.png)
+1. Click the green `< > Code` button.![Code button](images/code_button.png)
 
 1. In the menu that appears, click `Download ZIP`.
 1. Once the download is complete, double-click the downloaded file to unzip the files.

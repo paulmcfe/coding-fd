@@ -1,6 +1,6 @@
 # Coding For Dummies
 ## Example Code Files
-<img src="images/CodingFD.jpg" alt="Coding For Dummies cover" align="right" width="250px">
+<img src="images/CodingFD.jpg" alt="Coding For Dummies cover" align="right" width="225px">
 
 This repository contains the example files used in the book *Coding For Dummies*.
 

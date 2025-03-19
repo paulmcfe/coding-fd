@@ -1,4 +1,4 @@
-![Code For Dummies cover](images/codingFD.jpg)# Coding For Dummies
+![Coding For Dummies cover](images/CodingFD.jpg)# Coding For Dummies
 ## Example Code Files
 
 This repository contains the example files used in the book *Coding For Dummies*.

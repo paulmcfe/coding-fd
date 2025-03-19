@@ -1,6 +1,6 @@
-<table>
+<table style="border-collapse: collapse; border: none;">
   <tr>
-    <td>
+    <td style="border: none;">
 <h1>Coding For Dummies</h1>
 <h2>Example Code Files</h2>
 
@@ -12,7 +12,7 @@ You can access the example files individually by clicking the appropriate chapte
 1. In the menu that appears, click `Download ZIP`.
 1. Once the download is complete, double-click the downloaded `.zip` file to unzip the files.
 </td>
-<td>
+<td style="border: none;">
   <img src="images/CodingFD.jpg" alt="Coding For Dummies cover" align="right">
 </td>
 </tr>

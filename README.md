@@ -1,8 +1,6 @@
-<table style="border-collapse: collapse; border: none;">
-  <tr>
-    <td style="border: none;">
-<h1>Coding For Dummies</h1>
-<h2>Example Code Files</h2>
+# Coding For Dummies
+## Example Code Files
+<img src="images/CodingFD.jpg" alt="Coding For Dummies cover" align="right" width="250px">
 
 This repository contains the example files used in the book *Coding For Dummies*.
 
@@ -11,9 +9,3 @@ You can access the example files individually by clicking the appropriate chapte
 1. Click the ![Code button](images/code_button.png) button.
 1. In the menu that appears, click `Download ZIP`.
 1. Once the download is complete, double-click the downloaded `.zip` file to unzip the files.
-</td>
-<td style="border: none;">
-  <img src="images/CodingFD.jpg" alt="Coding For Dummies cover" align="right">
-</td>
-</tr>
-</table>

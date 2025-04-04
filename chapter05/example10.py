@@ -1,3 +1,2 @@
-age = input("How old are you? ")
-age_next_year = age + 1
-print(f"Next year, you'll be {age_next_year}!")
+name = input("What's your name? ")
+print(f"Hello, {name}!")

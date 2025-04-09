@@ -1,0 +1,7 @@
+Limerick #1
+There once was a coder named Ray
+Who wrote Python all night and day
+Through one missing colon
+His sanity was stolen
+Now code just makes him run away
+

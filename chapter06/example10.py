@@ -1,9 +1,14 @@
-import requests
+import my_module
 
-# Get a random joke
-response = requests.get("https://official-joke-api.appspot.com/random_joke")
+counter = 0
 
-if response.status_code == 200:
-    print("I was able to connect to the API no problem.")
-else:
-    print("Something went wrong. Even the internet has off days.")
+while (counter < 3):
+    # Get the price
+    price = float(input("Enter the price: "))
+
+    # Get the total with tax and shipping
+    total = my_module.calculate_total(price)
+
+    print(f"Total with tax and shipping: ${total:.2f}")
+
+    counter += 1

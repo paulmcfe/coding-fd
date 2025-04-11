@@ -1,4 +1,4 @@
-import sys
-import os
-import ../example03
-print(dir(example03))
+squares = []
+for x in range(11):
+    squares.append(x ** 2)
+print(squares)

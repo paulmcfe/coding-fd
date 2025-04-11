@@ -1,8 +1,12 @@
-# Prompt for an age
-age = input("How old are you? ")
+import requests
 
-# Print the age variable data type
-print(f"The data type of age is {type(age)}")
+try:
+    response = requests.get("https://catfact.ninja/fact")
 
-age_next_year = int(age) + 1
-print(f"Next year, you'll be {age_next_year}!")
+    # Check for an error
+    response.raise_for_status()
+
+    data = response.json()
+    print(data['fact'])
+except requests.exceptions.RequestException:
+    print("There was a problem contacting the API.")

@@ -10,16 +10,29 @@ class CatFactCard:
 
     # Get a random cat fact
     def get_fact(self):
+
+        # Store the Cat Facts API URL
         url = "https://catfact.ninja/fact"
+
+        # Try to get a fact from the API
         try:
             response = requests.get(url)
+
+            # Check for an error
             response.raise_for_status()
+
+            # If we're good, get the response
             data = response.json()
+
+            # Send back the returned cat fact
             return data['fact']
+        
+        # Did an error occur?
         except:
+            # If so, send back a message
             return "Sorry, couldn't fetch a fact right now."
 
-    # Display the retrieved fact
+    # Display the card's data
     def show(self):
         print(f"{self.name} says:")
         print(f"\"{self.fact}\"")

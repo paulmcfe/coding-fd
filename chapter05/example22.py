@@ -1,4 +1,8 @@
-is_raining = bool(input("Is it raining (if not, just press Enter)? "))
-if is_raining:
-    print("Bring an umbrella!")
-print("Have a great day!")
+quiz_answers = (
+    "Rumpelstiltskin",
+    "bullet bra",
+    "antidisestablishmentarianism",
+    "Senegalese",
+    42)
+for answer in quiz_answers:
+    print(answer)

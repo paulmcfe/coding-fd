@@ -1,6 +1,4 @@
-shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
-
-print(f"Don't forget to buy {shopping_list[0]}")
-print(f"Don't forget to buy {shopping_list[1]}")
-print(f"Don't forget to buy {shopping_list[2]}")
-print(f"Don't forget to buy {shopping_list[3]}")
+is_raining = bool(input("Is it raining (if not, just press Enter)? "))
+if is_raining:
+    print("Bring an umbrella!")
+print("Have a great day!")

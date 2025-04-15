@@ -1,8 +1,13 @@
-score = int(input("What was your score? "))
-
-if score >= 80:
-    print(f"Wow, your score was {score}.")
-    print("Nice job!")
-else:
-    print(f"Too bad, your score was {score}.")
-    print("Keep practicing!")
+person = {
+    "name": "Alice",
+    "age": 30,
+    "is_student": False
+}
+print(person["age"])
+person["age"] = 31
+person["email"] = "alice@somewhere.com"
+del person["is_student"]
+for key in person:
+    print(key)
+for key, value in person.items():
+    print(key, "=", value)

@@ -1,4 +1,8 @@
-shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
+score = int(input("What was your score? "))
 
-for product in shopping_list:
-    print(f"Don't forget to buy {product}")
+if score >= 80:
+    print(f"Wow, your score was {score}.")
+    print("Nice job!")
+else:
+    print(f"Too bad, your score was {score}.")
+    print("Keep practicing!")

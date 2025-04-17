@@ -1,4 +1,5 @@
 # Import some libraries
+import sys
 import csv
 import random
 
@@ -7,29 +8,34 @@ import random
 def load_words(path):
 
     # Open the CSV file
-    with open(path, newline='') as csv_file:
+    try:
+        with open(path, newline='') as csv_file:
 
-        # Read the CSV file into a dictionary
-        # The keys are the column names and 
-        # the values are the cell values
-        reader = csv.DictReader(csv_file)
-        
-        # Filter the words based on the criteria
-        # This list comprehension filters out words that are
-        #     * Too short (less than 4 letters)
-        #     * Too long (more than 10 letters)
-        #     * Too obscure (Rank = 4)
-        words = [row for row in reader 
-                 if len(row['Word']) >= 4 
-                 and len(row['Word']) <= 10 
-                 and row['Rank'] != '4']
+            # Read the CSV file into a dictionary
+            # The keys are the column names and 
+            # the values are the cell values
+            reader = csv.DictReader(csv_file)
+            
+            # Filter the words based on the criteria
+            # This list comprehension filters out words that are
+            #     * Too short (less than 4 letters)
+            #     * Too long (more than 10 letters)
+            #     * Too obscure (Rank = 4)
+            words = [row for row in reader 
+                    if len(row['Word']) >= 4 
+                    and len(row['Word']) <= 10 
+                    and row['Rank'] != '4']
 
-        # Return the list of word dictionaries
-        return words
+            # Return the list of word dictionaries
+            return words
+    except FileNotFoundError:
+        print(f"Whoops! The file {path} wasn't found!")
+        print("Make sure it's in the same folder as this script.")
+        sys.exit()
 
 # Get the list of words from the CSV file
 # The file should be in the same directory as this script        
-words = load_words('word_list.csv')
+words = load_words('word_list2.csv')
 
 # Function to find anagrams of a word from a list of words
 def find_anagrams(word, word_list):
@@ -133,7 +139,7 @@ while True:
     # Check if the user found all the anagrams
     if len(guessed) == len(anagrams):
         print(f"Great job! You found all {len(anagrams)} anagrams in "
-              f"{guesses} guesses!\n")
+            f"{guesses} guesses!\n")
         print("You are now officially an Anagram Wizard.\n")
     else:
         print("Guessagram wins this round. Better luck next time!\n")

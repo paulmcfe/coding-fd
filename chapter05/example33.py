@@ -1,7 +1,8 @@
-# Initialize the counter
-counter = 0
+while True:
+    value = input("Type a number (or q to quit): ")
+    if value == "q":
+        break
+    else:
+        print(f"The cube of your number is {int(value) ** 3}")
 
-# Loop as long as the counter is less than 3
-while counter < 3:
-    print(f"The loop counter is now: {counter}")
-    counter += 1  # Increment the counter
+fave_fruits = ["peach", "apple", "orange", "cherry"]

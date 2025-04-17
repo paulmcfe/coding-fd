@@ -35,7 +35,7 @@ def load_words(path):
 
 # Get the list of words from the CSV file
 # The file should be in the same directory as this script        
-words = load_words('word_list2.csv')
+words = load_words('word_list.csv')
 
 # Function to find anagrams of a word from a list of words
 def find_anagrams(word, word_list):

@@ -1,3 +1,4 @@
+# Import all the things
 import sys
 import string
 import matplotlib.pyplot as plt
@@ -14,15 +15,14 @@ except FileNotFoundError:
     print("Make sure it's in the same folder as this script.")
     sys.exit()
 
-# Make everything lowercase so that "rabbit" 
-# and "Rabbit" are counted as the same word
+# Make everything lowercase
 clean_text = raw_text.lower()
 
 # Replace dashes and em dashes with spaces
 clean_text = clean_text.replace("-", " ")
 clean_text = clean_text.replace("—", " ")
 
-# Define extra punctuation to remove (like curly quotes)
+# Define extra punctuation to remove (e.g., curly quotes)
 extra_punctuation = '“”‘’…'
 
 # Remove punctuation marks such as commas and periods
@@ -35,7 +35,9 @@ words = clean_text.split()
 # Create a dictionary to count the occurrences of each word
 word_counts = {}
 
+# Store all the stop words
 stop_words = set(stopwords.words("english"))
+
 # Loop through the list of words
 for word in words:
     # If the word is a stop word, don’t count it
@@ -49,8 +51,10 @@ for word in words:
         # If not, add it to the dictionary with a count of 1
         word_counts[word] = 1
 
-# Sort the dictionary by word frequency (highest first)
-sorted_words = sorted(word_counts.items(), key=lambda item: item[1], reverse= True)
+# Sort the dictionary by word count (highest first)
+sorted_words = sorted(word_counts.items(), 
+                      key=lambda item: item[1], 
+                      reverse= True)
 
 # Print the 10 most common words
 print("The 10 most common words in the text are:")
@@ -59,12 +63,15 @@ for word, count in sorted_words[:10]:
 
 # Get a list of unique words
 unique_words = set(words)
+
+# Sort the unique words by length (longest firat)
 longest_words = sorted(unique_words, key=len, reverse=True)
+
+# Print the 10 most longest words
 print("Top 10 longest words:")
 for word in longest_words[:10]:
     print(f"{word} is {len(word)} characters long.")
 
-# Analyze the sentence lengths
 # Replace curly quotes with regular quotes
 raw_text = raw_text.replace("“", '"').replace("”", '"')
 raw_text = raw_text.replace("‘", "'").replace("’", "'")
@@ -87,15 +94,19 @@ print(f"Shortest sentence: {shortest_sentence} words")
 print(f"Longest sentence: {longest_sentence} words")
 print(f"Average length: {average_sentence:.2f} words")
 
-# Plot the sentence lngths on a graph
+# Plot the sentence lengths on a graph
 plt.hist(sentence_lengths, bins=30, edgecolor='black')
 plt.title("Sentence Lengths in Words")
 plt.xlabel("Words per sentence")
 plt.ylabel("Number of sentences")
 plt.show()
 
+# Get a reference to VADER
 analyzer = SentimentIntensityAnalyzer()
+
+# Run a sentiment analysis on the raw text
 scores = analyzer.polarity_scores(raw_text)
 
+# Print the sentiment scores
 print("Sentiment scores:")
 print(scores)

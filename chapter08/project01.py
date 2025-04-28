@@ -121,7 +121,7 @@ while True:
                     break
 
         # Does the user want to quit?
-        elif guess.upper() == "QUIT":
+        elif guess == "QUIT":
             # If so, print a message and break out of the loop
             print("\nOkay, thanks for playing!\n")
             break

@@ -64,7 +64,7 @@ for word, count in sorted_words[:10]:
 # Get a list of unique words
 unique_words = set(words)
 
-# Sort the unique words by length (longest firat)
+# Sort the unique words by length (longest first)
 longest_words = sorted(unique_words, key=len, reverse=True)
 
 # Print the 10 most longest words

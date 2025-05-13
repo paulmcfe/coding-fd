@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Iterating an array: forEach()</title>
+    <style>
+        body {
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iterating an array: forEach()</h1>
+    <p>
+        (Please open the browser's console to see 
+        the result of this page's script.)
+    </p>
+    <script>
+        // Declare the array
+        const fruits = ["aprium", "limequat", "pluot"];
+
+        // Iterate the array
+        fruits.forEach(function(value, index, array) {
+            console.log(`${value} is fruit ${index + 1} of ${array.length}`);
+        });
+    </script>
+</body>
+</html>

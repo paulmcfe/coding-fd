@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Controlling loop execution: break</title>
+        <style>
+            body {
+                margin: 1em;
+                font-size: 1.5em;
+            }
+        </style>    
+        <script>
+            let sum = 0;
+            let num;
+            for (let i = 1; i <= 3; i++) {
+                num = prompt("Type a number (or click Cancel to bail out):", 1);
+                if (num === null) {
+                    break;
+                }
+                sum += Number(num);
+            }
+            console.log("The total of your numbers is " + sum);
+        </script>
+    </head>
+    <body>
+        <h1>Controlling loop execution: break</h1>
+        <p>
+            (Please open the browser's console to see the result of this page's script.)
+        </p>
+    </body>
+</html>

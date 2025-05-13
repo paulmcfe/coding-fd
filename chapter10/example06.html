@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calling a function after the page is loaded</title>
+    <style>
+        body {
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        function makeBackgroundTomato() {
+            document.body.style.backgroundColor = "tomato";
+            console.log("The background is now tomato.");
+        }
+    </script>
+</head>
+<body>
+    <h1> Calling a function after the page is loaded</h1>
+    <p>
+        (Please open the browser's console to see 
+        the result of this page's script.)
+    </p>
+
+    <script>
+        makeBackgroundTomato();
+    </script>
+</body>
+</html>

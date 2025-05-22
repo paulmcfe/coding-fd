@@ -1,32 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Specifying an element by class</title>
+        <title>Controlling loop execution: break</title>
         <style>
-            .keyword {
-                color: darkorchid;
+            body {
+                margin: 1em;
+                font-size: 1.5em;
             }
-        </style>
+        </style>    
+        <script>
+            let sum = 0;
+            let num;
+            for (let i = 1; i <= 3; i++) {
+                num = prompt("Type a number (or click Cancel to bail out):", 1);
+                if (num === null) {
+                    break;
+                }
+                sum += Number(num);
+            }
+            console.log("The total of your numbers is " + sum);
+        </script>
     </head>
     <body>
-        <header id="page-banner">
-            <h1>Above and Beyond the <span class="keyword">Kale</span> of Duty</h1>
-        </header>
-        <main id="page-content">
-            <p>
-                Do you love to cook with <span class="keyword">kale</span>?
-            </p>
-            <p>
-                What is your favorite <span class="keyword">kale</span>-based sandwich?
-            </p>
-            <p>
-                Having trouble? <span class="keyword">Kale</span> 9-1-1!
-            </p>
-        </main>
-        <script>
-            const keywords = document.getElementsByClassName("keyword")
-            console.log('Friend, the class "keyword" is used ' + keywords.length + ' times in this page.');
-        </script>
+        <h1>Controlling loop execution: break</h1>
+        <p>
+            (Please open the browser's console to see the result of this page's script.)
+        </p>
     </body>
 </html>

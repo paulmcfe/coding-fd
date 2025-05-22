@@ -1,24 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Iterating over a collection</title>
-    </head>
-    <body>
-        <div id="div1">
-            This, of course, is div 1.
-        </div>
-        <div id="div2">
-            Yeah, well <em>this</em> is div 2!
-        </div>
-        <div id="div3">
-            Ignore those dudes. Welcome to div 3!
-        </div>
-        <script>
-            const divs = document.getElementsByTagName("div");
-            for (const d of divs) {
-                console.log(d.id);
+<head>
+    <meta charset="utf-8">
+    <title>Calling a function when the &lt;script&gt; tag is parsed</title>    <style>
+        body {
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        function displayGreeting() {
+            const currentHour = new Date().getHours();
+            if (currentHour < 12) {
+                console.log("Good morning!");
+            } else {
+                console.log("Good day!");
             }
-        </script>
-    </body>
+        }
+        displayGreeting();
+    </script>
+</head>
+<body>
+    <h1> Calling a function when the &lt;script&gt; tag is parsed</h1>
+    <p>
+        (Please open the browser's console to see 
+        the result of this page's script.)
+    </p>
+</body>
 </html>

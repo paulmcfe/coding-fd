@@ -1,10 +1,5 @@
-app_title = "Awesome App"  # Global variable
-
-def show_welcome():
-    print(f"Welcome to {app_title}!")
-
-def show_goodbye():
-    print(f"Thanks for using {app_title}! Goodbye!")
-
-show_welcome()
-show_goodbye()
+shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
+shopping_list.append("butter")
+print(shopping_list)
+shopping_list.insert(1, "coffee")
+print(shopping_list)

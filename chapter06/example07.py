@@ -1,10 +1,14 @@
-# Import the statistics module
-import statistics
+shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
 
-# Store the test scores in a list
-test_scores = [77, 65, 82, 71, 90, 53, 68, 79, 47, 77]
+last_item = shopping_list.pop()
+print(last_item)
 
-# Calculate the mean value of the test scores
-test_mean = statistics.mean(test_scores)
+print(shopping_list)
 
-print(test_mean) # Output: 70.9
+first_item = shopping_list.pop(0)
+print(first_item)
+
+print(shopping_list)
+
+shopping_list.remove("eggs")
+print(shopping_list)

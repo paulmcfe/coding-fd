@@ -1,22 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>So Many Kale Recipes</title>
-    </head>
-    <body>
-        <header id="page-banner">
-            <h1>Above and Beyond the Kale of Duty</h1>
-        </header>
-        <main id="page-content">
-            <p>
-                Do you love to cook with <a href="kale.html">kale</a>?
-            </p>
-        </main>
-        <script>
-            const content = document.getElementById("page-content");
-            const firstContentChildElement = content.firstElementChild;
-            console.log(firstContentChildElement);
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Working with block scope</title>
+    <style>
+        body {
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Working with block scope</h1>
+    <p>
+        (Please open the browser's console to see 
+        the result of this page's script.)
+    </p>
+    <script>
+        if (true) {
+            const myMessage = "I'm in the scope!";
+            console.log("Inside the if block: " + myMessage);
+        }
+        console.log("Outside the if block: " + myMessage);
+    </script>
+</body>
 </html>

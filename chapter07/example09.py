@@ -1,18 +1,18 @@
-class Pet:
-    adoption_fee =  75
+# Import just the date class from the datetime module
+from datetime import date
 
-    def __init__(self, name, species, age):
-        self.name = name
-        self.species = species
-        self.age = age
+# Get today's date
+today = date.today()
 
-    def print_info(self):
-        print(f"{self.name} is a {self.age}-year-old {self.species} and costs ${self.adoption_fee} to adopt.")
+# Ask the user for their birth date
+year = int(input("Enter the year you were born (e.g., 1990): "))
+month = int(input("Enter the month you were born (1–12): "))
+day = int(input("Enter the day you were born (1–31): "))
 
-chase = Pet("Chase", "dog", 3)
-whiskers = Pet("Whiskers", "cat", 1)
-hammy = Pet("Hammy", "hamster", 2)
+# Create a date object for the birth date
+birth_date = date(year, month, day)
 
-chase.print_info()
-whiskers.print_info()
-hammy.print_info()
+# Calculate the difference between today and the birth date
+days_old = (today - birth_date).days
+
+print(f"You are {days_old} days old!")

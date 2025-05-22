@@ -1,6 +1,6 @@
-names = ["Alice", "Bob", "Charlie", "David", "Eve", "Alphonse"]
-matches = []
-for name in names:
-    if name.startswith("A"):
-        matches.append(name)
-print(matches)
+def greet():
+    user_name = input("What's your name? ") # local variable
+    print(f"Hi, {user_name}!")  # works just fine
+
+greet()
+print(user_name)  # Not gonna happen

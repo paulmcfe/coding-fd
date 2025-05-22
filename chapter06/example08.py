@@ -1,18 +1,5 @@
-# Import the math module to use the sqrt function
-from math import sqrt
+shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
 
-# Define two points as (x, y) tuples
-point1 = (3, 4)
-point2 = (7, 1)
+print("bread" in shopping_list)
 
-# Calculate the difference between the x values
-dx = point2[0] - point1[0]
-
-# Calculate the difference between the y values
-dy = point2[1] - point1[1]
-
-# Apply the Pythagorean theorem:
-# distance = √(dx² + dy²)
-distance = sqrt(dx**2 + dy**2)
-
-print(f"The distance between the points is: {distance:.2f}")
+print("rutabaga" in shopping_list)

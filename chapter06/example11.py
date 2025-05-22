@@ -1,9 +1,13 @@
-import requests
-
-# Get a random joke
-response = requests.get("https://official-joke-api.appspot.com/random_joke")
-
-if response.status_code == 200:
-    print("I was able to connect to the API no problem.")
-else:
-    print("Something went wrong. This is not a joke.")
+person = {
+    "name": "Alice",
+    "age": 30,
+    "is_student": False
+}
+print(person["age"])
+person["age"] = 31
+person["email"] = "alice@somewhere.com"
+del person["is_student"]
+for key in person:
+    print(key)
+for key, value in person.items():
+    print(key, "=", value)

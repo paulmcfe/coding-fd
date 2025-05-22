@@ -1,5 +1,6 @@
-with open("limerick.txt", "r") as file:
-    lines = file.readlines()
-    for line in lines:
-        # Strip whitespace and print the line
-        print(line.strip())
+shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
+
+print(f"Don't forget to buy {shopping_list[0]}")
+print(f"Don't forget to buy {shopping_list[1]}")
+print(f"Don't forget to buy {shopping_list[2]}")
+print(f"Don't forget to buy {shopping_list[3]}")

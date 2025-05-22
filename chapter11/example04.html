@@ -1,33 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Specifying elements by selector</title>
+        <title>Controlling loop execution: continue</title>
+        <style>
+            body {
+                margin: 1em;
+                font-size: 1.5em;
+            }
+        </style>    
+        <script>
+            let sum = 0;
+            let num;
+            do {
+                num = prompt("Type a number; when you're done, click Cancel:", 1);
+                if (isNaN(num) && num !== null) {
+                    continue;
+                }
+                sum += Number(num);
+            }
+            while (num !== null || sum === 0);
+            console.log("The total of your numbers is " + sum);
+        </script>
     </head>
     <body>
-        <header id="page-banner">
-            <h1>Above and Beyond the Kale of Duty</h1>
-            <p>Everything there is to know about kale</p>
-        </header>
-        <main id="page-content">
-            <p>
-                Do you love to cook with kale?
-            </p>
-            <p>
-                What is your favorite kale-based sandwich?
-            </p>
-            <p>
-                Having trouble? Kale 9-1-1!
-            </p>
-            <aside>
-                <p>
-                    Kale Tips 'n Tricks'
-                </p>
-            </aside>
-        </main>
-        <script>
-            const main_paragraphs = document.querySelectorAll('main > p')
-            console.log('The main element has ' + main_paragraphs.length + ' paragraphs that are direct children.');
-        </script>
+        <h1>Controlling loop execution: continue</h1>
+        <p>
+            (Please open the browser's console to see the result of this page's script.)
+        </p>
     </body>
 </html>

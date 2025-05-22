@@ -1,20 +1,3 @@
-# Get the price
-price = float(input("Enter the price: "))
-
-# Calculate 7% tax
-tax = price * 0.07
-
-# Is the price at least $50?
-if price >= 50:
-
-    # If so, charge a flat rate for shipping
-    shipping = 5.00
-else:
-
-    # Otherwise, charge 10% of the price for shipping
-     shipping = price * 0.1
-
-# Calculate the total
-total = price + tax + shipping
-
-print(f"Total with tax and shipping: ${total:.2f}")
+shopping_list = ["milk", "eggs", "bread", "Snickerdoodles"]
+lucky_numbers = [7, 11, 548834]
+mixed_bag = ["hello", 3.14, True, 42]

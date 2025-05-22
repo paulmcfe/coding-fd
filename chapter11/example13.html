@@ -1,23 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>So Many Kale Recipes</title>
-    </head>
-    <body>
-        <header id="page-banner">
-            <h1>Above and Beyond the Kale of Duty</h1>
-        </header>
-        <main id="page-content">
-            <p>
-                Do you love to cook with <a href="kale.html">kale</a>?
-            </p>
-            <p id="output">
+<head>
+    <meta charset="utf-8">
+    <title>Iterating an array: for...of</title>
+    <style>
+        body {
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iterating an array: for...of</h1>
+    <p>
+        (Please open the browser's console to see 
+        the result of this page's script.)
+    </p>
+    <script>
+        // Declare the array
+        const fruits = ["aprium", "limequat", "pluot"];
 
-            </p>
-        </main>
-        <script>
-            const output = document.getElementById("output");
-            output.textContent = "Hello, kale world!"
-        </script>
-    </body>
+        // Iterate the array
+        for (const fruit of fruits) {
+            console.log(`${fruit} is a fruit of ${fruit.length} letters.`);
+        }
+    </script>
+</body>
 </html>

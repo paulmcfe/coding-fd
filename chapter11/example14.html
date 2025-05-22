@@ -1,23 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>So Many Kale Recipes</title>
-    </head>
-    <body>
-        <header id="page-banner">
-            <h1>Above and Beyond the Kale of Duty</h1>
-        </header>
-        <nav>
-            <h2 id="nav-heading">Navigation</h2>
-        </nav>
-        <main id="page-content">
-            <p>
-                Do you love to cook with <a href="kale.html">kale</a>?
-            </p>
-        </main>
-        <script>
-            const navHeading = document.getElementById("nav-heading");
-            navHeading.insertAdjacentText("afterbegin", "Main ");
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Iterating an array: forEach()</title>
+    <style>
+        body {
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iterating an array: forEach()</h1>
+    <p>
+        (Please open the browser's console to see 
+        the result of this page's script.)
+    </p>
+    <script>
+        // Declare the array
+        const fruits = ["aprium", "limequat", "pluot"];
+
+        // Iterate the array
+        fruits.forEach(function(value, index, array) {
+            console.log(`${value} is fruit ${index + 1} of ${array.length}`);
+        });
+    </script>
+</body>
 </html>

@@ -1,17 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>So Many Kale Recipes</title>
+        <title>Using for loops</title>
+        <style>
+            body {
+                margin: 1em;
+                font-size: 1.5em;
+            }
+        </style>
+        <script>
+            let sum = 0;
+            let num;
+            for (let i = 1; i <= 3; i++) {
+                num = prompt("Type a number:", 1);
+                sum += Number(num);
+            }
+            console.log("The total of your numbers is " + sum);
+        </script>
     </head>
     <body>
-        <header id="page-banner">
-            <h1>Above and Beyond the Kale of Duty</h1>
-        </header>
-        <main id="page-content">
-            <p>
-                Do you love to cook with <a href="kale.html">kale</a>?
-            </p>
-        </main>
+        <h1>Using for loops</h1>
+        <p>
+            (Please open the browser's console to see the result of this page's script.)
+        </p>
     </body>
 </html>

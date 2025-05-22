@@ -1,18 +1,10 @@
-pet1_name = "Chase"
-pet1_species = "dog"
-pet1_age = 3
+# Import the statistics module
+import statistics
 
-pet2_name = "Whiskers"
-pet2_species = "cat"
-pet2_age = 1
+# Store the test scores in a list
+test_scores = [77, 65, 82, 71, 90, 53, 68, 79, 47, 77]
 
-pet3_name = "Hammy"
-pet3_species = "hamster"
-pet3_age = 2
+# Calculate the mean value of the test scores
+test_mean = statistics.mean(test_scores)
 
-def print_info(name, species, age):
-    print(f"{name} is a {age}-year-old {species}.")
-
-print_info(pet1_name, pet1_species, pet1_age)
-print_info(pet2_name, pet2_species, pet2_age)
-print_info(pet3_name, pet3_species, pet3_age)
+print(test_mean) # Output: 70.9

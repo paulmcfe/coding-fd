@@ -1,19 +1,35 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>The dblclick event</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project 1: A Photo Gallery</title>
         <style>
             body {
-                margin: 1rem;
+                margin: 0.5rem;
                 font-size: 2rem;
             }
-            .thumbnail {
-                width: 100px;
-                height: auto;
+            p {
+                margin-top: 0;
             }
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+            .thumbnail {
+                width: 200px;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            }
+       
             .full-size {
                 width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
             }
         </style>
         <script>
@@ -21,16 +37,44 @@
     </head>
     <body>
         <p>Double-click an image to expand/shrink it</p>
-        <div>
-            <img src="image01.jpg" class="thumbnail" alt="Photo of a sign that reads 'No fish guts'">
-        </div>
-        <div>
-            <img src="image02.jpg" class="thumbnail" alt="Photo of a bridge with a sign that reads 'This river I step in is not the river I stand in'">
-        </div>
-        <div>
-            <img src="image03.jpg" class="thumbnail" alt="Photo of a person sitting on a park bench. The person's hair is sticking straight up and they are reading a book titled 'Struck By Lightning'">
-        </div>
-        
+        <section class="gallery">
+            <div>
+                <img src="image01.jpg" class="thumbnail" alt="Thumbnail 1">
+            </div>
+            <div>
+                <img src="image02.jpg" class="thumbnail" alt="Thumbnail 2">
+            </div>
+            <div>
+                <img src="image03.jpg" class="thumbnail" alt="Thumbnail 3">
+            </div>
+            <div>
+                <img src="image04.jpg" class="thumbnail" alt="Thumbnail 4">
+            </div>
+            <div>
+                <img src="image05.jpg" class="thumbnail" alt="Thumbnail 5">
+            </div>
+            <div>
+                <img src="image06.jpg" class="thumbnail" alt="Thumbnail 6">
+            </div>
+            <div>
+                <img src="image07.jpg" class="thumbnail" alt="Thumbnail 7">
+            </div>
+            <div>
+                <img src="image08.jpg" class="thumbnail" alt="Thumbnail 8">
+            </div>
+            <div>
+                <img src="image09.jpg" class="thumbnail" alt="Thumbnail 9">
+            </div>
+            <div>
+                <img src="image10.jpg" class="thumbnail" alt="Thumbnail 10">
+            </div>
+            <div>
+                <img src="image11.jpg" class="thumbnail" alt="Thumbnail 11">
+            </div>
+            <div>
+                <img src="image12.jpg" class="thumbnail" alt="Thumbnail 12">
+            </div>
+        </section>
         <script>
             // Get all the img elements
             const images = document.getElementsByTagName('img');

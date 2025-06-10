@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whimsical Sentence Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 725px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 2.25em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #sentence-display {
+            background: #f7fafc;
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            font-size: 1.25em;
+            line-height: 1.4;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3748;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #sentence-display.has-content {
+            background: linear-gradient(45deg, #fff5f5, #f0fff4);
+            border-color: #9ae6b4;
+            animation: glow 2s ease-in-out;
+        }
+
+        @keyframes glow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        #generate-btn {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.6);
+            background: linear-gradient(45deg, #38a169, #2f855a);
+        }
+
+        #generate-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            #sentence-display {
+                font-size: 1.2em;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Whimsical Sentence Generator</h1>
+        
+        <div id="sentence-display">
+            Click the button below to generate your first whimsical sentence!
+        </div>
+        
+        <button id="generate-btn" onclick="generateSentence()">Generate Sentence</button>
+    </div>
+
+    <script>
+        // Word arrays for sentence generation
+        const words = {
+            names: [
+                "Professor Wigglesworth", "Captain Butterknife", "Lady Sprinklebottom", 
+                "Sir Noodlehead", "Princess Gigglesocks", "Doctor Fizzlebang",
+                "Baron Tickletoes", "Countess Wobblethink", "Admiral Snugglepuff",
+                "Lord Bumbershoot", "Duchess Picklejar", "General Fluffernutter"
+            ],
+            
+            verbs: [
+                "dances", "wiggles", "bounces", "skips", "prances", "wobbles",
+                "twirls", "hops", "gallops", "saunters", "marches", "tip-toes",
+                "moonwalks", "cartwheels", "somersaults", "pirouettes"
+            ],
+            
+            adverbs: [
+                "gracefully", "mysteriously", "enthusiastically", "backwards", 
+                "sideways", "upside-down", "dramatically", "sneakily", "boldly",
+                "cheerfully", "frantically", "majestically", "rhythmically",
+                "unexpectedly", "triumphantly", "mischievously"
+            ],
+            
+            adjectives: [
+                "purple", "gigantic", "invisible", "sparkly", "wobbly", "fuzzy",
+                "transparent", "polka-dotted", "striped", "glowing", "bouncy",
+                "squishy", "crystalline", "rainbow-colored", "fluffy", "metallic"
+            ],
+            
+            nouns: [
+                "umbrella", "teapot", "marshmallow", "bicycle", "accordion", 
+                "lampshade", "pretzel", "butterfly", "trombone", "pineapple",
+                "typewriter", "chandelier", "cucumber", "tambourine", "doorknob",
+                "jellybean", "telescope", "harmonica", "waffle", "snowglobe"
+            ],
+            
+            locations: [
+                "in the enchanted forest", "on top of a giant mushroom", 
+                "inside a soap bubble", "beneath the rainbow bridge",
+                "across the chocolate river", "through the looking glass",
+                "around the maypole", "over the candy mountain",
+                "beside the singing fountain", "within the secret garden",
+                "near the laughing waterfall", "beyond the starlit meadow"
+            ],
+            
+            timeExpressions: [
+                "every Tuesday", "at the stroke of midnight", "during teatime",
+                "when the moon is full", "before breakfast", "after the circus",
+                "while humming a tune", "during the eclipse", "at dawn",
+                "when nobody's watching", "on special occasions", "twice a day"
+            ]
+        };
+
+        // Sentence templates for variety
+        const templates = [
+            // Simple sentences
+            "{name} {adverb} {verb} with a {adjective} {noun}.",
+            "{name} {verb} {adverb} {location}.",
+            "{name} {verb} around a {adjective} {noun} {timeExpression}.",
+            
+            // More complex sentences
+            "{name} {adverb} {verb} with a {adjective} {noun} while holding a {adjective} {noun}.",
+            "Every morning, {name} {verb} {adverb} {location} carrying a {adjective} {noun}.",
+            "{timeExpression}, {name} {verb} {adverb} around a {adjective} {noun}.",
+            
+            // Compound sentences
+            "{name} {verb} with a {adjective} {noun}, then {adverb} {verb} {location}.",
+            "While {name} {adverb} {verb} {location}, a {adjective} {noun} appears suddenly.",
+            "{name} loves to {verb} {adverb} with a {adjective} {noun} {timeExpression}."
+        ];
+
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function generateSentence() {
+            // Get random template
+            const template = getRandomElement(templates);
+            
+            // Replace placeholders with random words
+            let sentence = template
+                .replace(/{name}/g, getRandomElement(words.names))
+                .replace(/{verb}/g, getRandomElement(words.verbs))
+                .replace(/{adverb}/g, getRandomElement(words.adverbs))
+                .replace(/{adjective}/g, getRandomElement(words.adjectives))
+                .replace(/{noun}/g, getRandomElement(words.nouns))
+                .replace(/{location}/g, getRandomElement(words.locations))
+                .replace(/{timeExpression}/g, getRandomElement(words.timeExpressions));
+            
+            // Display the sentence with animation
+            debugger;
+            const display = document.getElementById('sentence-display');
+            display.style.opacity = '0';
+            
+            setTimeout(() => {
+                display.textContent = sentence;
+                display.classList.add('has-content');
+                display.style.opacity = '1';
+            }, 200);
+        }
+
+        // Generate an initial sentence when the page loads
+        window.addEventListener('load', () => {
+            setTimeout(generateSentence, 500);
+        });
+
+        // Add keyboard support
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                event.preventDefault();
+                generateSentence();
+            }
+        });
+    </script>
+</body>
+</html>

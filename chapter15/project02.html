@@ -5,48 +5,86 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project 2: How's the Weather?</title>
         <style>
+            body {
+                font-family: sans-serif;
+                text-align: center;
+                padding: 20px;
+                transition: background 0.5s ease;
+            }
+            #weatherResult img {
+                width: 100px;
+            }
         </style>
     </head>
     <body>
-        <h1>What’s the Weather?</h1>
-        <input type="text" id="cityInput" placeholder="Enter a city" value="New York">
+        <h1>Forecast-o-Matic 3000</h1>
+        <input type="text" id="cityInput" placeholder="Enter a city">
         <button id="getWeatherBtn">Check Weather</button>
         <div id="weatherResult"></div>
 
         <script>
-            function getWeather(city) {
-                //const apiKey = 'YOUR_API_KEY'; // Replace with your actual key!
-                const apiKey = '08daf95d097cc71922b96a57b6a8ac78';
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-                fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                    throw new Error('City not found');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const temp = data.main.temp;
-                    const description = data.weather[0].description;
-                    const cityName = data.name;
-
-                    resultDiv.innerHTML = `<h2>${cityName}</h2>
-                                            <p>Temperature: ${temp}°C</p>
-                                            <p>Conditions: ${description}</p>`;
-                })
-                .catch(error => {
-                    resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
-                });
-            }
             const button = document.getElementById('getWeatherBtn');
             const resultDiv = document.getElementById('weatherResult');
 
             button.addEventListener('click', () => {
-            const city = document.getElementById('cityInput').value;
+                const city = document.getElementById('cityInput').value;
                 getWeather(city);
             });
 
+            function getWeather(city) {
+                //const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+                const apiKey = '08daf95d097cc71922b96a57b6a8ac78'; // Replace with your actual API key
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('City not found');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const temp = data.main.temp;
+                        const feelsLike = data.main.feels_like;
+                        const description = data.weather[0].description;
+                        const humidity = data.main.humidity;
+                        const wind = data.wind.speed;
+                        const iconCode = data.weather[0].icon;
+                        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                        const cityName = data.name;
+                        const weatherType = data.weather[0].main;
+
+                        resultDiv.innerHTML = `
+                            <h2>${cityName}</h2>
+                            <img src="${iconUrl}" alt="Weather icon">
+                            <p>${description}</p>
+                            <p>Temperature: ${temp}°C</p>
+                            <p>Feels like: ${feelsLike}°C</p>
+                            <p>Humidity: ${humidity}%</p>
+                            <p>Wind: ${wind} km/h</p>
+                        `;
+
+                        changeBackground(weatherType);
+                    })
+                    .catch(error => {
+                        resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+                        document.body.style.background = 'lightcoral';
+                    });
+            }
+
+            function changeBackground(type) {
+                const backgrounds = {
+                    Clear: 'lightblue',
+                    Clouds: 'lightgray',
+                    Rain: 'gray',
+                    Drizzle: 'darkgray',
+                    Thunderstorm: 'slategray',
+                    Snow: 'white',
+                    Mist: '#cccccc',
+                    Haze: '#bbbbbb'
+                };
+                document.body.style.background = backgrounds[type] || 'lightyellow';
+            }
 
         </script>
     </body>

@@ -58,9 +58,9 @@
         <button id="new-quote-button">Get a New Quote</button>
 
         <script>
-            const button = document.getElementById('new-quote-button');
             const quoteText = document.getElementById('quote-text');
             const quoteAuthor = document.getElementById('quote-author');
+            const button = document.getElementById('new-quote-button');
 
             button.addEventListener('click', getQuote);
 
@@ -79,7 +79,7 @@
                     quoteText.textContent = `”${data.quote}“`;
                     quoteAuthor.textContent = `— ${data.author || 'Unknown'}`;
 
-                    updateBackgrounds();
+                    updateColors();
 
                 } catch (error) {
                     quoteText.textContent = 'Oops! Something went wrong.';
@@ -88,7 +88,7 @@
                 }
             }
 
-            function updateBackgrounds() {
+            function updateColors() {
                 const randomHue = Math.floor(Math.random() * 360);
                 const newBGColor = `hsl(${randomHue} 50% 75%)`;
                 const newTextColor = `hsl(${randomHue} 50% 25%)`;

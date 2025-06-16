@@ -3,87 +3,103 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Project 2: How's the Weather?</title>
+        <title>Project 2: How’s the Weather?</title>
         <style>
             body {
-                font-family: sans-serif;
+                font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
                 text-align: center;
-                padding: 20px;
-                transition: background 0.5s ease;
+                padding: 40px;
+                background-color: #f0f0f0;
+                transition: background-color 0.5s ease;
             }
-            #weatherResult img {
-                width: 100px;
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
             }
+
+            #quote-box {
+                background: white;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: inset 5px 5px 5px hsl(0, 0%, 75%);
+                max-width: 600px;
+                margin: 0 auto 20px;
+            }
+
+            #quote-text {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            #quote-author {
+                font-style: italic;
+                color: #555;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+                background-color: #007acc;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
         </style>
     </head>
     <body>
-        <h1>Forecast-o-Matic 3000</h1>
-        <input type="text" id="cityInput" placeholder="Enter a city">
-        <button id="getWeatherBtn">Check Weather</button>
-        <div id="weatherResult"></div>
+        <h1>Inspiration Station</h1>
+        <div id="quote-box">
+            <div id="quote-text">Click the button for some wisdom...</div>
+            <div id="quote-author"></div>
+        </div>
+        <button id="new-quote-button">Get a New Quote</button>
 
         <script>
-            const button = document.getElementById('getWeatherBtn');
-            const resultDiv = document.getElementById('weatherResult');
+            const button = document.getElementById('new-quote-button');
+            const quoteText = document.getElementById('quote-text');
+            const quoteAuthor = document.getElementById('quote-author');
 
-            button.addEventListener('click', () => {
-                const city = document.getElementById('cityInput').value;
-                getWeather(city);
-            });
+            button.addEventListener('click', getQuote);
 
-            function getWeather(city) {
-                const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+            async function getQuote() {
+                const apiUrl = 'https://programming-quotesapi.vercel.app/api/random';
 
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('City not found');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        const temp = data.main.temp;
-                        const feelsLike = data.main.feels_like;
-                        const description = data.weather[0].description;
-                        const humidity = data.main.humidity;
-                        const wind = data.wind.speed;
-                        const iconCode = data.weather[0].icon;
-                        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-                        const cityName = data.name;
-                        const weatherType = data.weather[0].main;
+                try {
+                    const response = await fetch(apiUrl);
 
-                        resultDiv.innerHTML = `
-                            <h2>${cityName}</h2>
-                            <img src="${iconUrl}" alt="Weather icon">
-                            <p>${description}</p>
-                            <p>Temperature: ${temp}°C</p>
-                            <p>Feels like: ${feelsLike}°C</p>
-                            <p>Humidity: ${humidity}%</p>
-                            <p>Wind: ${wind} km/h</p>
-                        `;
+                    if (!response.ok) {
+                        throw new Error('Could not fetch quote');
+                    }
 
-                        changeBackground(weatherType);
-                    })
-                    .catch(error => {
-                        resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
-                        document.body.style.background = 'lightcoral';
-                    });
+                    const data = await response.json();
+
+                    quoteText.textContent = `”${data.quote}“`;
+                    quoteAuthor.textContent = `— ${data.author || 'Unknown'}`;
+
+                    updateBackgrounds();
+
+                } catch (error) {
+                    quoteText.textContent = 'Oops! Something went wrong.';
+                    quoteAuthor.textContent = '';
+                    document.body.style.backgroundColor = '#ffcccc';
+                }
             }
 
-            function changeBackground(type) {
-                const backgrounds = {
-                    Clear: 'lightblue',
-                    Clouds: 'lightgray',
-                    Rain: 'gray',
-                    Drizzle: 'darkgray',
-                    Thunderstorm: 'slategray',
-                    Snow: 'white',
-                    Mist: '#cccccc',
-                    Haze: '#bbbbbb'
-                };
-                document.body.style.background = backgrounds[type] || 'lightyellow';
+            function updateBackgrounds() {
+                const randomHue = Math.floor(Math.random() * 360);
+                const newBGColor = `hsl(${randomHue} 50% 75%)`;
+                const newTextColor = `hsl(${randomHue} 50% 25%)`;
+                document.body.style.backgroundColor = newBGColor;
+
+                document.getElementById('new-quote-button').style.backgroundColor = newTextColor;
+                document.getElementById('quote-text').style.color = newTextColor;
+                document.getElementById('quote-author').style.color = newTextColor;
             }
+
+            getQuote();
 
         </script>
     </body>

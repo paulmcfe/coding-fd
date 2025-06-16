@@ -65,7 +65,7 @@
             button.addEventListener('click', getQuote);
 
             async function getQuote() {
-                const apiUrl = 'https://programming-quotesapi.vercel.app/api/random';
+                const apiUrl = 'https://echoes.soferity.com/api/quotes/random?lang=en';
 
                 try {
                     const response = await fetch(apiUrl);

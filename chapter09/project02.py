@@ -18,7 +18,7 @@ except FileNotFoundError:
 # Make everything lowercase
 clean_text = raw_text.lower()
 
-# Replace dashes and em dashes with spaces
+# Replace hyphens and em dashes with spaces
 clean_text = clean_text.replace("-", " ")
 clean_text = clean_text.replace("—", " ")
 
@@ -67,7 +67,7 @@ unique_words = set(words)
 # Sort the unique words by length (longest first)
 longest_words = sorted(unique_words, key=len, reverse=True)
 
-# Print the 10 most longest words
+# Print the 10 longest words
 print("Top 10 longest words:")
 for word in longest_words[:10]:
     print(f"{word} is {len(word)} characters long.")

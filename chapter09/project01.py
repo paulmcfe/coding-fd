@@ -60,7 +60,7 @@ print("==============================")
 print("Your mission, should you choose to accept it, "
       "is to find all the anagrams of a random word.")
 print("Some are easy. Some...not so much. Think you're up for the challenge?")
-print("Type 'HINT' for a hint, or 'QUIT' to give up (no judgment...maybe).")
+print("Type 'HINT' for a hint, or 'QUIT' to give up (no judgement...maybe).")
 print("Let's twist some letters!\n")
 
 # Run the main game loop
@@ -126,8 +126,7 @@ while True:
             print("\nOkay, thanks for playing!\n")
             break
 
-        # If we get this far, the 
-        # guess was not an anagram
+        # If we get this far, the guess was not an anagram
         else:
             print("\nNope, sorry. Please try again.\n")
         
